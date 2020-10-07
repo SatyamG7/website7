@@ -35,4 +35,3 @@ Being so attached to the notion of traveling and living abroad, I chose to do th
 **Looking Forward, I see a clear path ahead of me**
 ------------------------------------------------
 I have now come to **LBS** to cement my career path and build on my prior professional, personal and academic experiences. My objective is clear. **I want to work in London in M&A for a few years and as soon as I can, transfer to Singapore where I can pursue my work with my European clients and help them expand in Asia.** 
-
