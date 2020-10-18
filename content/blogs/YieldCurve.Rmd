@@ -1,4 +1,3 @@
-
 ---
 categories:
 - ""
@@ -8,7 +7,7 @@ description: Does the Yield Curve inversion serve as a good forecaster of Recess
 draft: false
 image: pic02.jpg
 keywords: ""
-slug: YieldCurve
+slug: Yield1
 title: Yield Curve
 ---
 
@@ -46,9 +45,7 @@ library(tidyquant)
 ```
 
 
-# Challenge 1: Yield Curve inversion
-
-First, we use the `tidyquant` package to download monthly rates for different durations. 
+# Yield Curve inversion
 
 ```{r get_rates, warning=FALSE}
 # Get a list of FRED codes for US rates and US yield curve; choose monthly frequency

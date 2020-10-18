@@ -109,7 +109,7 @@ disqusShortname = ""
       title = "Yield Curve"
       subtitle = "Forecasting Recession through the Yield Curve"
       image = "pic02.jpg"
-      url = "blogs/YieldCurve"
+      url = "blogs/Yield1"
 
     [[params.tiles.showcase]]
       title = "Magna"
