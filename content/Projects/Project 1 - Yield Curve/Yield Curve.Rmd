@@ -1,5 +1,5 @@
 ---
-title: "Yield Curve Inversion"
+title: "Yield Curve"
 author: "Satyam Gorry"
 date: "18/10/2020"
 output:
