@@ -52,8 +52,8 @@ disqusShortname = ""
       url = "blogs/aboutme"
 
     [[params.navigation.links]]
-      name = "Tempus"
-      url = "blogs/tempus"
+      name = "Yield Curve"
+      url = "blogs/yieldcurve"
       
     [[params.navigation.links]]
       name = "Magna"
