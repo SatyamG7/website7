@@ -1,7 +1,7 @@
 ---
-title: "Session 6: Homework 3"
-author: "Aman Sharma, Christoph Sieker, Kasia Gasiewska, Peter Moravec, Philippe Schrage, Satyam Gorry"
-date: "11/10/2020"
+title: "Yield Curve Inversion"
+author: "Satyam Gorry"
+date: "18/10/2020"
 output:
   html_document:
     theme: flatly

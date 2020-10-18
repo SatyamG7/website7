@@ -106,10 +106,10 @@ disqusShortname = ""
       url = "blogs/AboutMe"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
-      subtitle = "Feugiat Amet Tempus"
+      title = "Yield Curve"
+      subtitle = "Forecasting Recession through the Yield Curve"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "blogs/yieldcurve"
 
     [[params.tiles.showcase]]
       title = "Magna"
