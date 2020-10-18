@@ -7,7 +7,7 @@ description: Proving the extent to which the Yield Curve is an accurate predicto
 draft: false
 image: pic11.jpg
 keywords: ""
-slug: yieldcurve
+slug: YieldCurve
 title: Yield Curve
 ---
 
