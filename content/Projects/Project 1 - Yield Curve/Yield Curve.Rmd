@@ -1,17 +1,53 @@
 ---
-categories:
-- ""
-- ""
-date: "2017-10-31T22:26:13-05:00"
-description: Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.
-draft: false
-image: pic08.jpg
-keywords: ""
-slug: tempus
-title: Tempus
+title: "Session 6: Homework 3"
+author: "Aman Sharma, Christoph Sieker, Kasia Gasiewska, Peter Moravec, Philippe Schrage, Satyam Gorry"
+date: "11/10/2020"
+output:
+  html_document:
+    theme: flatly
+    highlight: zenburn
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+    code_folding: show
 ---
 
-# Yield Curve inversion
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+library(tidyquant)
+```
+
+
+# Challenge 1: Yield Curve inversion
 
 First, we use the `tidyquant` package to download monthly rates for different durations. 
 
@@ -73,6 +109,7 @@ The first thing would be to join this dataframe `df` with the dataframe `mylooku
 yield_curve <-left_join(df,mylookup,by="symbol")
 glimpse(yield_curve)
 ```
+
 ## Yields on US rates by duration since 1960
 
 ```{r yield_curve_1, echo=FALSE, out.width="100%"}
@@ -93,6 +130,7 @@ ggplot(data = yield_curve,
   theme_bw() + 
 #Adding labels to the graph
   labs(title = "Yields on U.S. Treasury rates since 1960", x = "", y = "%", caption = "Source:St. Louis Federal Reserve Economic Database (FRED)") 
+
   
 ```
 
@@ -126,6 +164,8 @@ ggplot(yield_curve_two,
        x = "Maturity", 
        y = "Yield(%)", 
        caption = "Source:St. Louis Federal Reserve Economic Database (FRED)") 
+
+
   
 ```
 
@@ -161,6 +201,7 @@ ggplot(yield_curve_legend,
        x = "", 
        y = "%", 
        caption = "Source:St. Louis Federal Reserve Economic Database (FRED)") 
+
   
 ```
 
@@ -235,6 +276,12 @@ ggplot(yield_curve_wide,
 #Adapting scale
   scale_x_date(date_breaks="2 years",date_labels="%Y")
   
+  
+
+
+
 ```
 
 Looking at our graph, we can clearly detect a correlation between yield difference curve movement and recessions. Several times directly before a recession the short term yield exceeds the long term yield and thus a negative yield difference exists. This pattern also applies to the two recessions in the US since 1999 according to Wikipedia. Alltogether, since 1999, a negative yield difference has been recorded three times - the above mentioned recessions and once more in 2020. The 2020 negative yield difference is directly before the covid-19 recession, however, the recession data frame does not yet include this recession. So overall, a negative difference seems to be a rather reliable predictor, although not always accurate according to the graph.
+
+
