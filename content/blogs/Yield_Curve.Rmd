@@ -1,17 +1,16 @@
----
-title: "Yield Curve"
-author: "Satyam Gorry"
-date: "18/10/2020"
-output:
-  html_document:
-    theme: flatly
-    highlight: zenburn
-    number_sections: yes
-    toc: yes
-    toc_float: yes
-    code_folding: show
----
 
+---
+categories:
+- ""
+- ""
+date: "2020-10-19"
+description: Does the Yield Curve inversion serve as a good forecaster of Recessions and to what extent?
+draft: false
+image: pic11.jpg
+keywords: ""
+slug: Yield_Curve
+title: Mask Acceptance
+---
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
