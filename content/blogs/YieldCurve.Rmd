@@ -6,10 +6,10 @@ categories:
 date: "2020-10-19"
 description: Does the Yield Curve inversion serve as a good forecaster of Recessions and to what extent?
 draft: false
-image: pic11.jpg
+image: pic02.jpg
 keywords: ""
-slug: Yield_Curve
-title: Mask Acceptance
+slug: YieldCurve
+title: Yield Curve
 ---
 
 ```{r, setup, echo=FALSE}
