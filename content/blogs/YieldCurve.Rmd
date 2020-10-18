@@ -8,7 +8,7 @@ draft: false
 image: pic02.jpg
 keywords: ""
 slug: Yield1
-title: Yield Curve
+title: Yield1
 ---
 
 ```{r, setup, echo=FALSE}
