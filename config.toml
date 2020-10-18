@@ -53,7 +53,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Yield Curve"
-      url = "blogs/yieldcurve"
+      url = "blogs/Yield1"
       
     [[params.navigation.links]]
       name = "Magna"
