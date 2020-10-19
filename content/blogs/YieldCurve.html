@@ -5,7 +5,7 @@ categories:
 date: "2020-10-19"
 description: Does the Yield Curve inversion serve as a good forecaster of Recessions and to what extent?
 draft: false
-image: pic02.jpg
+image: pic11.jpg
 keywords: ""
 slug: Yield1
 title: Yield Curve
@@ -122,13 +122,6 @@ glimpse(df)</code></pre>
 ## $ symbol &lt;chr&gt; &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;, &quot;TB3MS&quot;,…
 ## $ date   &lt;date&gt; 1960-01-01, 1960-02-01, 1960-03-01, 1960-04-01, 1960-05-01, 1…
 ## $ price  &lt;dbl&gt; 4.35, 3.96, 3.31, 3.23, 3.29, 2.46, 2.30, 2.30, 2.48, 2.30, 2.…</code></pre>
-<p>Our dataframe <code>df</code> has three columns (variables):</p>
-<ul>
-<li><code>symbol</code>: the FRED database ticker symbol</li>
-<li><code>date</code>: already a date object</li>
-<li><code>price</code>: the actual yield on that date</li>
-</ul>
-<p>The first thing would be to join this dataframe <code>df</code> with the dataframe <code>mylookup</code> so we have a more readable version of maturities, durations, etc.</p>
 <pre class="r"><code>yield_curve &lt;-left_join(df,mylookup,by=&quot;symbol&quot;)
 glimpse(yield_curve)</code></pre>
 <pre><code>## Rows: 6,774
@@ -140,7 +133,6 @@ glimpse(yield_curve)</code></pre>
 ## $ maturity &lt;fct&gt; 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, 3m, …</code></pre>
 <div id="yields-on-us-rates-by-duration-since-1960" class="section level2">
 <h2>Yields on US rates by duration since 1960</h2>
-<p><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/yield_curve1.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#Preparation for proper positioning of durations in the chart
 yield_curve$var &lt;- factor(yield_curve$var, levels = c(&quot;3-Month Treasury Bill&quot;, &quot;6-Month Treasury Bill&quot;, &quot;1-Year Treasury Rate&quot;, &quot;2-Year Treasury Rate&quot;, &quot;3-Year Treasury Rate&quot;, &quot;5-Year Treasury Rate&quot;, &quot;7-Year Treasury Rate&quot;, &quot;10-Year Treasury Rate&quot;, &quot;20-Year Treasury Rate&quot;, &quot;30-Year Treasury Rate&quot;))
 
@@ -157,7 +149,6 @@ ggplot(data = yield_curve,
 </div>
 <div id="monthly-yields-on-us-rates-by-duration-since-1999-on-a-year-by-year-basis" class="section level2">
 <h2>Monthly yields on US rates by duration since 1999 on a year-by-year basis</h2>
-<p><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/yield_curve2.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#Filter for data since 1999
 yield_curve_two &lt;- yield_curve %&gt;%
   group_by(year(date)) %&gt;%
@@ -167,7 +158,6 @@ yield_curve_two &lt;- yield_curve %&gt;%
 ggplot(yield_curve_two, 
        aes(x = maturity, 
            y = price, 
-           colour = maturity,
 #Showing one line per month for each yearly graph
            group = date))+ 
   geom_line(show.legend = FALSE) + 
@@ -183,7 +173,6 @@ ggplot(yield_curve_two,
 </div>
 <div id="month-and-10-year-yields-since-1999" class="section level2">
 <h2>3-month and 10-year yields since 1999</h2>
-<p><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/yield_curve3.png" width="100%" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#Filter for 3-month and 10-year US Treasury yields
 yield_curve_legend &lt;- yield_curve_two %&gt;%
   filter(maturity == c(&quot;3m&quot;, &quot;10y&quot;))
@@ -212,12 +201,6 @@ ggplot(yield_curve_legend,
 </div>
 <div id="forecasting-recessions-in-the-us-with-a-yield-curve" class="section level2">
 <h2>Forecasting recessions in the US with a yield curve</h2>
-<p>Besides calculating the spread (10year - 3months), there are a few things we need to do to produce our final plot</p>
-<ol style="list-style-type: decimal">
-<li>Setup data for US recessions</li>
-<li>Superimpose recessions as the grey areas in our plot</li>
-<li>Plot the spread between 30 years and 3 months as a blue/red ribbon, based on whether the spread is positive (blue) or negative(red)</li>
-</ol>
 <pre class="r"><code># get US recession dates after 1946 from Wikipedia 
 # https://en.wikipedia.org/wiki/List_of_recessions_in_the_United_States
 
@@ -269,7 +252,7 @@ ggplot(yield_curve_wide,
        caption = &quot;Source:St. Louis Federal Reserve Economic Database (FRED)&quot;) +
 #Adapting scale
   scale_x_date(date_breaks=&quot;2 years&quot;,date_labels=&quot;%Y&quot;)</code></pre>
-<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_4-1.png" width="1440" style="display: block; margin: auto;" /></p>
-<p>Looking at our graph, we can clearly detect a correlation between yield difference curve movement and recessions. Several times directly before a recession the short term yield exceeds the long term yield and thus a negative yield difference exists. This pattern also applies to the two recessions in the US since 1999 according to Wikipedia. Alltogether, since 1999, a negative yield difference has been recorded three times - the above mentioned recessions and once more in 2020. The 2020 negative yield difference is directly before the covid-19 recession, however, the recession data frame does not yet include this recession. So overall, a negative difference seems to be a rather reliable predictor, although not always accurate according to the graph.</p>
+<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_4-1.png" width="1440" style="display: block; margin: auto;" />
+The graph above shows a correlation between government yield spreads turning negative and recessions in the US economy. An inverted yield curve means interest rates have flipped on U.S. Treasurys with short-term bonds paying more than long-term bonds. Usually, inverted yield curves have served as predictors of upcoming recessions, usually appearing months in advance of said recession. Indeed, since 1990, the 3 recessions of 2001, 2007 to 2009 and more recently in 2020 have been preceded by an inversion in the yield curve. However the indicator is not always an accurate measure as shown by the fact that the yield curve inversion in 2020 took place before the COVID-19-induced recession. Consequently it is possible to argue that without COVID-19, there would not have been a recession and thus the forecasting power of the yield curve inversion could have been put into question.</p>
 </div>
 </div>

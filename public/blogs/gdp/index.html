@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="MFA 2021">
+	<meta name="author" content="Satyam">
+	<meta name="generator" content="Hugo 0.75.1" />
+	<title>GDP &middot; Satyam&#39;s Portfolio</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Satyam</strong> <span>Portfolio Website</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs/aboutme">About Me</a></li>
+            
+                <li><a href="/blogs/Yield1">Yield Curve</a></li>
+            
+                <li><a href="/blogs/GDP">GDP</a></li>
+            
+                <li><a href="/blogs/Climate1">Climate Change</a></li>
+            
+                <li><a href="/elements.html">Elements</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>GDP</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/blogs/pic13.jpg" alt="" /></span>
+                            
+                            
+
+
+<div id="gdp-components-over-time-and-among-countries" class="section level1">
+<h1>GDP components over time and among countries</h1>
+<pre class="r"><code>UN_GDP_data  &lt;-  read_excel(here::here(&quot;data&quot;, &quot;Download-GDPconstant-USD-countries.xls&quot;), # Excel filename
+                sheet=&quot;Download-GDPconstant-USD-countr&quot;, # Sheet name
+                skip=2) # Number of rows to skip</code></pre>
+<pre class="r"><code>#making the data into the long format, transforming GDP data into billions and renaming components
+tidy_GDP_data  &lt;-  UN_GDP_data %&gt;% 
+    pivot_longer(cols = 4:51,
+                 names_to = &quot;year&quot;,
+                 values_to = &quot;GDP&quot;) %&gt;% 
+    mutate(GDP=GDP/1e9, 
+    IndicatorName = case_when(
+    IndicatorName == &quot;Household consumption expenditure (including Non-profit institutions serving households)&quot; ~ &quot;Household_expenditure&quot;,
+    IndicatorName == &quot;General government final consumption expenditure&quot; ~ &quot;Government_expenditure&quot;,
+    IndicatorName == &quot;Gross capital formation&quot; ~ &quot;Gross_capital_formation&quot;,
+    IndicatorName == &quot;Exports of goods and services&quot; ~ &quot;Exports&quot;,
+    IndicatorName == &quot;Imports of goods and services&quot; ~ &quot;Imports&quot;,
+    IndicatorName == &quot;Gross Domestic Product (GDP)&quot; ~ &quot;Gross_Domestic_Product&quot;))
+
+#glimpse(tidy_GDP_data)
+
+# Selecting GDP components for 3 countries
+country_list &lt;- c(&quot;France&quot;,&quot;India&quot;, &quot;Singapore&quot;)
+indicator_list = c(&quot;Gross_capital_formation&quot;, &quot;Exports&quot;, &quot;Government_expenditure&quot;, &quot;Household_expenditure&quot;, &quot;Imports&quot;)</code></pre>
+<div id="reproducing-plot" class="section level2">
+<h2>Reproducing plot</h2>
+<pre class="r"><code>#filtering out the data for chosen countries and GDP components
+data_selected &lt;- tidy_GDP_data %&gt;% 
+  filter(Country %in% country_list &amp; IndicatorName %in% indicator_list)
+
+#plotting GDP components over time
+ggplot(data_selected, aes(x = year, y = GDP, group = IndicatorName, color = IndicatorName)) +
+  geom_line(size = 1) +
+  labs(title = &quot;GDP Components over time&quot;, 
+       subtitle = &quot;In constant 2010 USD&quot;, 
+       y = &quot;Billions US$&quot;, 
+       color = &quot;Components of GDP&quot;) +
+  facet_wrap(~Country) +
+  scale_x_discrete(breaks = scales::pretty_breaks(5)) +
+  scale_color_discrete(labels = c(&quot;Exports&quot;,
+                                  &quot;Government expenditure&quot;,
+                                  &quot;Gross capital formation&quot;,
+                                 &quot;Household expenditure&quot;,
+                                 &quot;Imports&quot;)) +
+  theme(panel.grid = element_line(colour = &quot;#f0f0f0&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, size = 0.5, fill = &quot;grey&quot;),
+        panel.background = element_rect(colour = &quot;black&quot;, size=0.5, fill = NA),
+        legend.key = element_rect(colour = &quot;transparent&quot;, fill = &quot;transparent&quot;),
+        axis.title.x = element_blank())</code></pre>
+<p><img src="/blogs/GDP_files/figure-html/GDP_graphs_1-1.png" width="960" style="display: block; margin: auto;" /></p>
+</div>
+<div id="proportion-of-gdp-components" class="section level2">
+<h2>Proportion of GDP components</h2>
+<pre class="r"><code>#Calculating proportion of each component in the total GDP value
+GDP_proportion &lt;- data_selected %&gt;%
+  pivot_wider(names_from = IndicatorName, values_from = GDP) %&gt;%
+  mutate(Net_Exports = Exports - Imports) %&gt;%
+  select(Country:&quot;Gross_capital_formation&quot;, Net_Exports) %&gt;%
+  pivot_longer(cols = &quot;Household_expenditure&quot; :Net_Exports,
+               names_to = &quot;GDP_Component&quot;, 
+               values_to = &quot;Proportion&quot;) %&gt;%
+  group_by(Country, year) %&gt;%
+  mutate(Proportion = Proportion/sum(Proportion))
+
+#Plotting GDP components over time
+ggplot(GDP_proportion, aes(x = year, y = Proportion, group = GDP_Component, color = GDP_Component)) +
+  geom_line(size = 0.5) +
+  labs(title = &quot;GDP and its breakdown at constant 2010 prices in US Dollars&quot;, 
+       y = &quot;proportion&quot;, 
+       caption = &quot;Source: United Nations,https://unstats.un.org/unsd/snaama/Downloads&quot;,
+       color = &quot;&quot;) +
+  facet_wrap(~Country) +
+  scale_x_discrete(breaks = scales::pretty_breaks(5)) +
+  scale_y_continuous(labels = scales ::percent) +
+  scale_color_discrete(labels = c(&quot;Government expenditure&quot;,
+                                 &quot;Gross capital formation&quot;, 
+                                 &quot;Household expenditure&quot;,
+                                 &quot;Net Exports&quot;)) +
+  theme(panel.grid = element_line(colour = &quot;#f0f0f0&quot;),
+        strip.background = element_rect(colour = &quot;black&quot;, size = 0.5, fill = &quot;grey80&quot;),
+        panel.background = element_rect(colour = &quot;black&quot;, size=0.5, fill = NA),
+        legend.key = element_rect(colour = &quot;transparent&quot;, fill = &quot;transparent&quot;),
+        axis.title.x = element_blank(),
+        plot.caption = element_text(hjust = 1,size = 8))</code></pre>
+<p><img src="/blogs/GDP_files/figure-html/GDP_graphs_2-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>Between the 1970’s and today, France’s GDP in absolute numbers has risen sharply. The most significant rise comes from Household Spending and can be linked to the end of the “30 Glorieuses” which began after WW2 and helped develop the French middle class. Meanwhile, the composition in terms of percentage has remained relatively stable; Government spending has oscillated around 55%, Gross Capital formation and Household expenditure around 25%, and Net Exports near 0%, frequently dipping into negative territory.</p>
+<p>India, as an emerging economy, has a very impressive overall increase in terms of absolute numbers, spearheaded by Household and Government spending. In terms of share of GDP, the volatility remains with notably a big drop in Household spending throughout the period which is compensated by and significant increase in government spending.</p>
+<p>Finally, Singapore confirms its status as a commercial nation which relies heavily on trade. The two most significant components of its GDP are Exports and Imports which grew exponentially during the period. And even if other constituents also increased in absolute numbers, they are dwarfed by the commercial growth.On the other hand, the composition of Singapore’s GDP shows a convergence of Household spending, Gross Capital formation and Net Exports at around 30%. Government spending has remained very stable at 10%.</p>
+</div>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://github.com/SatyamG7/website7" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/satyam-gorry/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; London Business School</li>
+                
+                <li>Design:  <a href="https://www.html5up.net">HTML5 UP</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

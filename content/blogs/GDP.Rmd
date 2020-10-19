@@ -1,0 +1,153 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-19"
+description: Comparing GDP and its components over time between France, India and Singapore
+draft: false
+image: pic13.jpg
+keywords: ""
+slug: GDP
+title: GDP
+---
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+library(tidyquant)
+```
+
+
+# GDP components over time and among countries
+
+```{r read_GDP_data}
+
+UN_GDP_data  <-  read_excel(here::here("data", "Download-GDPconstant-USD-countries.xls"), # Excel filename
+                sheet="Download-GDPconstant-USD-countr", # Sheet name
+                skip=2) # Number of rows to skip
+
+```
+
+```{r reshape_GDP_data_2}
+#making the data into the long format, transforming GDP data into billions and renaming components
+tidy_GDP_data  <-  UN_GDP_data %>% 
+    pivot_longer(cols = 4:51,
+                 names_to = "year",
+                 values_to = "GDP") %>% 
+    mutate(GDP=GDP/1e9, 
+    IndicatorName = case_when(
+    IndicatorName == "Household consumption expenditure (including Non-profit institutions serving households)" ~ "Household_expenditure",
+    IndicatorName == "General government final consumption expenditure" ~ "Government_expenditure",
+    IndicatorName == "Gross capital formation" ~ "Gross_capital_formation",
+    IndicatorName == "Exports of goods and services" ~ "Exports",
+    IndicatorName == "Imports of goods and services" ~ "Imports",
+    IndicatorName == "Gross Domestic Product (GDP)" ~ "Gross_Domestic_Product"))
+
+#glimpse(tidy_GDP_data)
+
+# Selecting GDP components for 3 countries
+country_list <- c("France","India", "Singapore")
+indicator_list = c("Gross_capital_formation", "Exports", "Government_expenditure", "Household_expenditure", "Imports")
+
+```
+
+## Reproducing plot
+
+```{r GDP_graphs_1, fig.width = 10}
+#filtering out the data for chosen countries and GDP components
+data_selected <- tidy_GDP_data %>% 
+  filter(Country %in% country_list & IndicatorName %in% indicator_list)
+
+#plotting GDP components over time
+ggplot(data_selected, aes(x = year, y = GDP, group = IndicatorName, color = IndicatorName)) +
+  geom_line(size = 1) +
+  labs(title = "GDP Components over time", 
+       subtitle = "In constant 2010 USD", 
+       y = "Billions US$", 
+       color = "Components of GDP") +
+  facet_wrap(~Country) +
+  scale_x_discrete(breaks = scales::pretty_breaks(5)) +
+  scale_color_discrete(labels = c("Exports",
+                                  "Government expenditure",
+                                  "Gross capital formation",
+                                 "Household expenditure",
+                                 "Imports")) +
+  theme(panel.grid = element_line(colour = "#f0f0f0"),
+        strip.background = element_rect(colour = "black", size = 0.5, fill = "grey"),
+        panel.background = element_rect(colour = "black", size=0.5, fill = NA),
+        legend.key = element_rect(colour = "transparent", fill = "transparent"),
+        axis.title.x = element_blank())
+```
+
+## Proportion of GDP components
+
+```{r GDP_graphs_2, fig.width = 10}
+#Calculating proportion of each component in the total GDP value
+GDP_proportion <- data_selected %>%
+  pivot_wider(names_from = IndicatorName, values_from = GDP) %>%
+  mutate(Net_Exports = Exports - Imports) %>%
+  select(Country:"Gross_capital_formation", Net_Exports) %>%
+  pivot_longer(cols = "Household_expenditure" :Net_Exports,
+               names_to = "GDP_Component", 
+               values_to = "Proportion") %>%
+  group_by(Country, year) %>%
+  mutate(Proportion = Proportion/sum(Proportion))
+
+#Plotting GDP components over time
+ggplot(GDP_proportion, aes(x = year, y = Proportion, group = GDP_Component, color = GDP_Component)) +
+  geom_line(size = 0.5) +
+  labs(title = "GDP and its breakdown at constant 2010 prices in US Dollars", 
+       y = "proportion", 
+       caption = "Source: United Nations,https://unstats.un.org/unsd/snaama/Downloads",
+       color = "") +
+  facet_wrap(~Country) +
+  scale_x_discrete(breaks = scales::pretty_breaks(5)) +
+  scale_y_continuous(labels = scales ::percent) +
+  scale_color_discrete(labels = c("Government expenditure",
+                                 "Gross capital formation", 
+                                 "Household expenditure",
+                                 "Net Exports")) +
+  theme(panel.grid = element_line(colour = "#f0f0f0"),
+        strip.background = element_rect(colour = "black", size = 0.5, fill = "grey80"),
+        panel.background = element_rect(colour = "black", size=0.5, fill = NA),
+        legend.key = element_rect(colour = "transparent", fill = "transparent"),
+        axis.title.x = element_blank(),
+        plot.caption = element_text(hjust = 1,size = 8))
+```
+
+Between the 1970's and today, France's GDP in absolute numbers has risen sharply. The most significant rise comes from Household Spending and can be linked to the end of the "30 Glorieuses" which began after WW2 and helped develop the French middle class. Meanwhile, the composition in terms of percentage has remained relatively stable; Government spending has oscillated around 55%, Gross Capital formation and Household expenditure around 25%, and Net Exports near 0%, frequently dipping into negative territory.
+
+India, as an emerging economy, has a very impressive overall increase in terms of absolute numbers, spearheaded by Household and Government spending. In terms of share of GDP, the volatility remains with notably a big drop in Household spending throughout the period which is compensated by and significant increase in government spending. 
+
+Finally, Singapore confirms its status as a commercial nation which relies heavily on trade. The two most significant components of its GDP are Exports and Imports which grew exponentially during the period. And even if other constituents also increased in absolute numbers, they are dwarfed by the commercial growth.On the other hand, the composition of Singapore's GDP shows a convergence of Household spending, Gross Capital formation and Net Exports at around 30%. Government spending has remained very stable at 10%. 
+
+
+
+

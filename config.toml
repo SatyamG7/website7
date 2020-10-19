@@ -56,12 +56,12 @@ disqusShortname = ""
       url = "blogs/Yield1"
       
     [[params.navigation.links]]
-      name = "Magna"
-      url = "blogs/magna"
+      name = "GDP"
+      url = "blogs/GDP"
       
     [[params.navigation.links]]
-      name = "Ipsum"
-      url = "blogs/ipsum"
+      name = "Climate Change"
+      url = "blogs/Climate1"
 
     [[params.navigation.links]]
       name = "Elements"
@@ -108,20 +108,20 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "Yield Curve"
       subtitle = "Forecasting Recession through the Yield Curve"
-      image = "pic02.jpg"
+      image = "pic12.jpg"
       url = "blogs/Yield1"
 
     [[params.tiles.showcase]]
-      title = "Magna"
-      subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "blogs/magna"
+      title = "GDP"
+      subtitle = "Comparing GDP and its components over time between France, India and Singapore"
+      image = "pic14.jpg"
+      url = "blogs/GDP"
 
     [[params.tiles.showcase]]
-      title = "Ipsum"
+      title = "Climate Change"
       subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+      image = "pic14.jpg"
+      url = "blogs/Climate1"
 
     ##[[params.tiles.showcase]]
       ##title = "Consequat"
