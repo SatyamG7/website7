@@ -123,7 +123,7 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "Climate Change"
-      subtitle = "Nisl Sed Aliquam"
+      subtitle = "Increasing Average Annual Temperature Anomalies"
       image = "pic14.jpg"
       url = "blogs/Climate1"
 
