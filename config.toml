@@ -64,6 +64,10 @@ disqusShortname = ""
       url = "blogs/pop"
       
     [[params.navigation.links]]
+      name = "COVID 19"
+      url = "blogs/COVID"
+      
+    [[params.navigation.links]]
       name = "Climate Change"
       url = "blogs/Climate1"
 
@@ -130,6 +134,12 @@ disqusShortname = ""
       subtitle = "Worldwide Statistics covering Fertility, GDP per Capita, Mortality, HIV prevalence and school enrollment"
       image = "pic22.jpg"
       url = "blogs/pop"
+      
+    [[params.tiles.showcase]]
+      title = "COVID 19"
+      subtitle = ""
+      image = "pic22.jpg"
+      url = "blogs/COVID"
 
     [[params.tiles.showcase]]
       title = "Climate Change"
