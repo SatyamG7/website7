@@ -43,11 +43,6 @@
   </url>
   
   <url>
-    <loc>/blogs/yieldcurve/</loc>
-    <lastmod>2017-10-31T22:26:13-05:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/categories/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
@@ -85,10 +80,6 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blogs/blog2/</loc>
   </url>
   
 </urlset>
