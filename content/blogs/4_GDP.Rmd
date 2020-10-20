@@ -11,6 +11,10 @@ slug: GDP
 title: GDP
 ---
 
+The intention of the below code is to measure how components of GDP have evolved over the last 4 decades for 3 countries. To accomplish this the data will be measured in both absolute and relative terms. STudyingt he various components is useful in understanding what drives wealth in a given country. 
+
+For this study, France, India and SIngapore were chosen due to their very different economic models and also in part due to the authors personal preference after having lvied in all 3. 
+
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 

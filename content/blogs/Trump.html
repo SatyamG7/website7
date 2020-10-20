@@ -13,8 +13,9 @@ title: Trump's Approval Ratings
 
 
 
-<div id="trumps-approval-margins" class="section level1">
-<h1>Trump’s Approval Margins</h1>
+<p>Probably the most controversial president at the moment, Trump divides opinions more than any other political leader of recent times. Interestingly, and to everyone’s disbelief, even when polls forecasted him to lose against Hillary CLinton, he surprised everyone by being elected to office.</p>
+<p>Anyhow, by continuously measuring polls throughout his tenure we see the following - that while Trump’s net approval (approval - disapproval) ratings have remained negative, they were far worst in the first year of his presidency, rose slightly in the second year to -10% and then evolved around there, until recently rising again slightly -7.5%</p>
+<p>Trump’s Approval Margins</p>
 <pre class="r"><code># Import approval polls data
 approval_polllist &lt;- read_csv(here::here(&#39;data&#39;, &#39;approval_polllist.csv&#39;))
 
@@ -96,5 +97,4 @@ net_approval_week34</code></pre>
 ## 1          34  2020    -11.7   5.24        32  0.927       2.04            1.89
 ## # … with 2 more variables: app_low &lt;dbl&gt;, app_high &lt;dbl&gt;</code></pre>
 <p>Looking at the graph, the confidence interval of the later week (week 34) is larger. There might be two reasons for this development, standard deviation and sample size. Variability might be increased and/ or the sample size might be reduced. Checking the table, we are able to identify that standard deviation indeed increased and sample size indeed decreased.</p>
-</div>
 </div>

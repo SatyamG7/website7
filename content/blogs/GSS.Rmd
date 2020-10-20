@@ -11,6 +11,9 @@ slug: GSS1
 title: Social Media and Email Usage
 ---
 
+The most commonly used communication medium today remains emails, but social media is representing an ever greater share of communication methods. It is also a big time consumer as can be seen with the analysis below. 
+Using R and statistics, the analysis seperates into tranches on Gender and Education the average usage of social media and then takes a global overview of how much time people in the population studied spend checking their emails. 
+
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 

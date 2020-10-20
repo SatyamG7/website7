@@ -11,6 +11,8 @@ slug: Climate1
 title: Climate Change
 ---
 
+This analysis focuses on Climate change as measured by temperature anomalies in given years. If there is an increasing amount of anomalies in average temperatures measured through time this will indicate that average temperatures are changing. With the analysis done below, the conclusion is very straightfroward in proving that temperatures are rising increasingky quickly and that most of the anomalies are measured during the winter months. Further study through a density plot measure confirms this conclusion as the current decade has experienced the highest delta regarding temperature anomalies.  
+
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 

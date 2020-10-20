@@ -10,7 +10,12 @@ keywords: ""
 slug: Trump
 title: Trump's Approval Ratings
 ---
-# Trump's Approval Margins
+
+Probably the most controversial president at the moment, Trump divides opinions more than any other political leader of recent times. Interestingly, and to everyone's disbelief, even when polls forecasted him to lose against Hillary CLinton, he surprised everyone by being elected to office. 
+
+Anyhow, by continuously measuring polls throughout his tenure we see the following - that while Trump's net approval (approval - disapproval) ratings have remained negative, they were far worst in the first year of his presidency, rose slightly in the second year to -10% and then evolved around there, until recently rising again slightly -7.5%
+
+Trump's Approval Margins
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(

@@ -11,6 +11,16 @@ slug: Pop
 title: Worldwide Population Statistics
 ---
 
+On this page, the intention is show off the power of R Studio in coming up with easy to understand statistics covering large amounts of data. As such, focusing on variables of HIV, fertility, GDP per capita, Mortality and school enrollment, the code below shows the relationship between them. 
+
+Starting with the relationship between HIV prevalence and Life Expectancy, the analysis concludes that there is a negative correlation which is most visible in Africa. 
+
+Moving on, GDP per Capita and Fertility are plotted together to demonstrate that there is here also a negative correlation which is most apparent in Africa and Latin America. 
+
+The third point looks into which countries have experienced the greates decrease/increase in mortality over the majority of this century. While this analysis is limited by the availability of data, it still provides an interesting conclusion: For the Top 5 countries by region, life expectancy has increased by around 95% and for the Worst 5, it has increased only by 50 to 90% (still not bad!).
+
+Finally, comparing fertility and school enrollment together yields yet another negative correlation indicating that more education equates to having less children. The more you know, the less children you have. Interesting!
+
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
