@@ -137,8 +137,8 @@ disqusShortname = ""
       
     [[params.tiles.showcase]]
       title = "COVID 19"
-      subtitle = ""
-      image = "pic22.jpg"
+      subtitle = "Understanding which population tranche is most impacted by COVID-19"
+      image = "pic24.jpg"
       url = "blogs/COVID"
 
     [[params.tiles.showcase]]

@@ -90,13 +90,12 @@
                                 <h1>COVID_19</h1>
                             </header>
                             
-                                <span class="image main"><img src="/img/blogs/pic20.jpg" alt="" /></span>
+                                <span class="image main"><img src="/img/blogs/pic25.jpg" alt="" /></span>
                             
                             
 
 
-<div id="challenge-1-cdc-covid-19-public-use-data" class="section level1">
-<h1>Challenge 1: CDC COVID-19 Public Use Data</h1>
+<p>CDC COVID-19 Public Use Data</p>
 <pre class="r"><code># file contains 11 variables and 3.66m rows and is well over 380Mb. 
 # It will take time to download
 
@@ -178,8 +177,6 @@ labels = c(&quot;Admitted to ICU&quot;, &quot;No ICU&quot;))
 #Graphical reflection
 ggplot(data = icu_covid, aes(x = age_group, y = death_percentage)) + geom_col(fill = &quot;#fe9481&quot;, show.legend = FALSE) + geom_text(aes(label = round(death_percentage*100, 1), hjust = 0.6)) + labs(title = &quot;Covid death % by age group, sex and whether patient was admitted to ICU&quot;, caption = &quot;Source:CDC&quot;) + theme_bw() + theme(axis.title.x = element_blank(), axis.title.y = element_blank()) + scale_y_continuous(labels = scales::percent) + coord_flip() + facet_grid(icu_yn_names ~ sex)</code></pre>
 <p><img src="/blogs/COVID_19_files/figure-html/unnamed-chunk-5-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/covid_death_rate_comorbidities.png" width="100%" style="display: block; margin: auto;" /><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/covid_death_rate_icu.png" width="100%" style="display: block; margin: auto;" /></p>
-</div>
 </div>
 
                         </div>

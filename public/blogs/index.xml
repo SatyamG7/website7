@@ -22,7 +22,8 @@
       <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/covid/</guid>
-      <description>Challenge 1: CDC COVID-19 Public Use Data # file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Covid death % by age group, sex and presence of co-morbidities #glimpse(covid_data) #Data cleaning cleaning_covid_data &amp;lt;- covid_data %&amp;gt;% filter(medcond_yn != &amp;quot;Missing&amp;quot;) %&amp;gt;% filter(medcond_yn !</description>
+      <description>CDC COVID-19 Public Use Data
+# file contains 11 variables and 3.66m rows and is well over 380Mb. # It will take time to download # URL link to CDC to download data url &amp;lt;- &amp;quot;https://data.cdc.gov/api/views/vbim-akqf/rows.csv?accessType=DOWNLOAD&amp;quot; covid_data &amp;lt;- vroom::vroom(url)%&amp;gt;% # If vroom::vroom(url) doesn&amp;#39;t work, use read_csv(url) clean_names() Covid death % by age group, sex and presence of co-morbidities #glimpse(covid_data) #Data cleaning cleaning_covid_data &amp;lt;- covid_data %&amp;gt;% filter(medcond_yn != &amp;quot;Missing&amp;quot;) %&amp;gt;% filter(medcond_yn !</description>
     </item>
     
     <item>
