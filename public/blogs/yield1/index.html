@@ -223,7 +223,7 @@ ggplot(data = yield_curve,
   theme_bw() + 
 #Adding labels to the graph
   labs(title = &quot;Yields on U.S. Treasury rates since 1960&quot;, x = &quot;&quot;, y = &quot;%&quot;, caption = &quot;Source:St. Louis Federal Reserve Economic Database (FRED)&quot;) </code></pre>
-<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_1_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p><img src="/blogs/2_YieldCurve_files/figure-html/yield_curve_1_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
 </div>
 <div id="monthly-yields-on-us-rates-by-duration-since-1999-on-a-year-by-year-basis" class="section level2">
 <h2>Monthly yields on US rates by duration since 1999 on a year-by-year basis</h2>
@@ -247,7 +247,7 @@ ggplot(yield_curve_two,
        x = &quot;Maturity&quot;, 
        y = &quot;Yield(%)&quot;, 
        caption = &quot;Source:St. Louis Federal Reserve Economic Database (FRED)&quot;) </code></pre>
-<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_2_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p><img src="/blogs/2_YieldCurve_files/figure-html/yield_curve_2_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
 </div>
 <div id="month-and-10-year-yields-since-1999" class="section level2">
 <h2>3-month and 10-year yields since 1999</h2>
@@ -275,7 +275,7 @@ ggplot(yield_curve_legend,
        x = &quot;&quot;, 
        y = &quot;%&quot;, 
        caption = &quot;Source:St. Louis Federal Reserve Economic Database (FRED)&quot;) </code></pre>
-<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_3_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
+<p><img src="/blogs/2_YieldCurve_files/figure-html/yield_curve_3_replication-1.png" width="1440" style="display: block; margin: auto;" /></p>
 </div>
 <div id="forecasting-recessions-in-the-us-with-a-yield-curve" class="section level2">
 <h2>Forecasting recessions in the US with a yield curve</h2>
@@ -330,7 +330,7 @@ ggplot(yield_curve_wide,
        caption = &quot;Source:St. Louis Federal Reserve Economic Database (FRED)&quot;) +
 #Adapting scale
   scale_x_date(date_breaks=&quot;2 years&quot;,date_labels=&quot;%Y&quot;)</code></pre>
-<p><img src="/blogs/YieldCurve_files/figure-html/yield_curve_4-1.png" width="1440" style="display: block; margin: auto;" />
+<p><img src="/blogs/2_YieldCurve_files/figure-html/yield_curve_4-1.png" width="1440" style="display: block; margin: auto;" />
 The graph above shows a correlation between government yield spreads turning negative and recessions in the US economy. An inverted yield curve means interest rates have flipped on U.S. Treasurys with short-term bonds paying more than long-term bonds. Usually, inverted yield curves have served as predictors of upcoming recessions, usually appearing months in advance of said recession. Indeed, since 1990, the 3 recessions of 2001, 2007 to 2009 and more recently in 2020 have been preceded by an inversion in the yield curve. However the indicator is not always an accurate measure as shown by the fact that the yield curve inversion in 2020 took place before the COVID-19-induced recession. Consequently it is possible to argue that without COVID-19, there would not have been a recession and thus the forecasting power of the yield curve inversion could have been put into question.</p>
 </div>
 </div>
