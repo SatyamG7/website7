@@ -60,6 +60,10 @@ disqusShortname = ""
       url = "blogs/GDP"
       
     [[params.navigation.links]]
+      name = "HIV Statistics"
+      url = "blogs/HIV"
+      
+    [[params.navigation.links]]
       name = "Climate Change"
       url = "blogs/Climate1"
 
@@ -120,6 +124,12 @@ disqusShortname = ""
       subtitle = "Comparing GDP and its components over time between France, India and Singapore"
       image = "pic19.jpg"
       url = "blogs/GDP"
+      
+    [[params.tiles.showcase]]
+      title = "HIV Worldwide Statistics"
+      subtitle = ""
+      image = "pic21.jpg"
+      url = "blogs/HIV"
 
     [[params.tiles.showcase]]
       title = "Climate Change"
