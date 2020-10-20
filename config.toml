@@ -60,8 +60,8 @@ disqusShortname = ""
       url = "blogs/GDP"
       
     [[params.navigation.links]]
-      name = "HIV Statistics"
-      url = "blogs/HIV"
+      name = "Worldwide Population Statistics"
+      url = "blogs/pop"
       
     [[params.navigation.links]]
       name = "Climate Change"
@@ -126,10 +126,10 @@ disqusShortname = ""
       url = "blogs/GDP"
       
     [[params.tiles.showcase]]
-      title = "HIV Worldwide Statistics"
-      subtitle = ""
-      image = "pic20.jpg"
-      url = "blogs/HIV"
+      title = "Worldwide Population Statistics"
+      subtitle = "Worldwide Statistics covering Fertility, GDP per Capita, Mortality, HIV prevalence and school enrollment"
+      image = "pic22.jpg"
+      url = "blogs/pop"
 
     [[params.tiles.showcase]]
       title = "Climate Change"

@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2020-10-19"
-description: 
+description: Worldwide Statistics covering Fertility, GDP per Capita, Mortality, HIV prevalence and school enrollment
 draft: false
-image: pic20.jpg
+image: pic21.jpg
 keywords: ""
-slug: HIV
-title: HIV Worldwide Statistics
+slug: Pop
+title: Worldwide Population Statistics
 ---
 
 ```{r, setup, include=FALSE}

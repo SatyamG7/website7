@@ -26,16 +26,6 @@
     </item>
     
     <item>
-      <title>HIV Worldwide Statistics</title>
-      <link>/blogs/hiv/</link>
-      <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
-      
-      <guid>/blogs/hiv/</guid>
-      <description># load gapminder HIV data hiv &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;adults_with_hiv_percent_age_15_49.csv&amp;quot;)) life_expectancy &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;life_expectancy_years.csv&amp;quot;)) # get World bank data using wbstats indicators &amp;lt;- c(&amp;quot;SP.DYN.TFRT.IN&amp;quot;,&amp;quot;SE.PRM.NENR&amp;quot;, &amp;quot;SH.DYN.MORT&amp;quot;, &amp;quot;NY.GDP.PCAP.KD&amp;quot;) library(wbstats) worldbank_data &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;worldbank_data.csv&amp;quot;)) # get a dataframe of information regarding countries, indicators, sources, regions, indicator topics, lending types, income levels, from the World Bank API countries &amp;lt;- read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;countries.csv&amp;quot;)) Working with the following three data frames:
- hiv life_expectancy worldbank_data  As a first step, we need to tidy the data of hiv and life_expectancy.</description>
-    </item>
-    
-    <item>
       <title>Social Media and Email Usage</title>
       <link>/blogs/gss1/</link>
       <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
@@ -51,6 +41,16 @@
       
       <guid>/blogs/trump/</guid>
       <description>Trump’s Approval Margins # Import approval polls data approval_polllist &amp;lt;- read_csv(here::here(&amp;#39;data&amp;#39;, &amp;#39;approval_polllist.csv&amp;#39;)) glimpse(approval_polllist) ## Rows: 15,619 ## Columns: 22 ## $ president &amp;lt;chr&amp;gt; &amp;quot;Donald Trump&amp;quot;, &amp;quot;Donald Trump&amp;quot;, &amp;quot;Donald Trump&amp;quot;, &amp;quot;… ## $ subgroup &amp;lt;chr&amp;gt; &amp;quot;All polls&amp;quot;, &amp;quot;All polls&amp;quot;, &amp;quot;All polls&amp;quot;, &amp;quot;All polls… ## $ modeldate &amp;lt;chr&amp;gt; &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/2020&amp;quot;, &amp;quot;9/27/2020… ## $ startdate &amp;lt;chr&amp;gt; &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/20/2017&amp;quot;, &amp;quot;1/21/2017… ## $ enddate &amp;lt;chr&amp;gt; &amp;quot;1/22/2017&amp;quot;, &amp;quot;1/22/2017&amp;quot;, &amp;quot;1/24/2017&amp;quot;, &amp;quot;1/23/2017… ## $ pollster &amp;lt;chr&amp;gt; &amp;quot;Gallup&amp;quot;, &amp;quot;Morning Consult&amp;quot;, &amp;quot;Ipsos&amp;quot;, &amp;quot;Gallup&amp;quot;, &amp;quot;… ## $ grade &amp;lt;chr&amp;gt; &amp;quot;B&amp;quot;, &amp;quot;B/C&amp;quot;, &amp;quot;B-&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;B-&amp;quot;, &amp;quot;C+&amp;quot;, &amp;quot;B+&amp;quot;, &amp;quot;B&amp;quot;, &amp;quot;C+… ## $ samplesize &amp;lt;dbl&amp;gt; 1500, 1992, 1632, 1500, 1651, 1500, 1190, 1500, 1… ## $ population &amp;lt;chr&amp;gt; &amp;quot;a&amp;quot;, &amp;quot;rv&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;lv&amp;quot;, &amp;quot;rv&amp;quot;, &amp;quot;a&amp;quot;, &amp;quot;lv&amp;quot;, … ## $ weight &amp;lt;dbl&amp;gt; 0.</description>
+    </item>
+    
+    <item>
+      <title>Worldwide Population Statistics</title>
+      <link>/blogs/pop/</link>
+      <pubDate>Mon, 19 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/pop/</guid>
+      <description># load gapminder HIV data hiv &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;adults_with_hiv_percent_age_15_49.csv&amp;quot;)) life_expectancy &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;life_expectancy_years.csv&amp;quot;)) # get World bank data using wbstats indicators &amp;lt;- c(&amp;quot;SP.DYN.TFRT.IN&amp;quot;,&amp;quot;SE.PRM.NENR&amp;quot;, &amp;quot;SH.DYN.MORT&amp;quot;, &amp;quot;NY.GDP.PCAP.KD&amp;quot;) library(wbstats) worldbank_data &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;worldbank_data.csv&amp;quot;)) # get a dataframe of information regarding countries, indicators, sources, regions, indicator topics, lending types, income levels, from the World Bank API countries &amp;lt;- read.csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;countries.csv&amp;quot;)) Working with the following three data frames:
+ hiv life_expectancy worldbank_data  As a first step, we need to tidy the data of hiv and life_expectancy.</description>
     </item>
     
     <item>
