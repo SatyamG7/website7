@@ -128,7 +128,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "HIV Worldwide Statistics"
       subtitle = ""
-      image = "pic21.jpg"
+      image = "pic20.jpg"
       url = "blogs/HIV"
 
     [[params.tiles.showcase]]
