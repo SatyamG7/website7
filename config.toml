@@ -65,7 +65,7 @@ disqusShortname = ""
 
     [[params.navigation.links]]
       name = "Social Media and Email Usage"
-      url = "blogs/GSS"
+      url = "blogs/GSS1"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -127,7 +127,7 @@ disqusShortname = ""
       title = "Social Media and Email Usage"
       subtitle = "Ipsum Dolor Sit Amet"
       image = "pic15.jpg"
-      url = "blogs/GSS"
+      url = "blogs/GSS1"
 
     ##[[params.tiles.showcase]]
       ##title = "Etiam"

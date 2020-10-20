@@ -3,15 +3,14 @@ categories:
 - ""
 - ""
 date: "2020-10-19"
-description: Does the Yield Curve inversion serve as a good forecaster of Recessions and to what extent?
+description: 
 draft: false
 image: pic16.jpg
 keywords: ""
-slug: GSS
-title: General Social Survey
+slug: GSS1
+title: Social Media and Email Usage
 ---
 
-# General Social Survey (GSS)
 
 ```{r, read_gss_data, cache=TRUE}
 gss <- read_csv(here::here("data", "smallgss2016.csv"), 
