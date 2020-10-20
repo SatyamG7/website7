@@ -1,0 +1,229 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="MFA 2021">
+	<meta name="author" content="Satyam">
+	<meta name="generator" content="Hugo 0.75.1" />
+	<title>Trump&#39;s Approval Ratings &middot; Satyam&#39;s Portfolio</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Satyam</strong> <span>Portfolio Website</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs/aboutme">About Me</a></li>
+            
+                <li><a href="/blogs/Yield1">Yield Curve</a></li>
+            
+                <li><a href="/blogs/GDP">GDP</a></li>
+            
+                <li><a href="/blogs/Climate1">Climate Change</a></li>
+            
+                <li><a href="/blogs/GSS1">Social Media and Email Usage</a></li>
+            
+                <li><a href="/blogs/Trump">Trump&#39;s Apporval Ratings</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Get Started</a></li>
+            
+            
+                <li><a href="/" class="button fit">Log In</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Trump&#39;s Approval Ratings</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/blogs/pic17.jpg" alt="" /></span>
+                            
+                            
+
+
+<div id="trumps-approval-margins" class="section level1">
+<h1>Trump’s Approval Margins</h1>
+<pre class="r"><code># Import approval polls data
+approval_polllist &lt;- read_csv(here::here(&#39;data&#39;, &#39;approval_polllist.csv&#39;))
+
+glimpse(approval_polllist)</code></pre>
+<pre><code>## Rows: 15,619
+## Columns: 22
+## $ president           &lt;chr&gt; &quot;Donald Trump&quot;, &quot;Donald Trump&quot;, &quot;Donald Trump&quot;, &quot;…
+## $ subgroup            &lt;chr&gt; &quot;All polls&quot;, &quot;All polls&quot;, &quot;All polls&quot;, &quot;All polls…
+## $ modeldate           &lt;chr&gt; &quot;9/27/2020&quot;, &quot;9/27/2020&quot;, &quot;9/27/2020&quot;, &quot;9/27/2020…
+## $ startdate           &lt;chr&gt; &quot;1/20/2017&quot;, &quot;1/20/2017&quot;, &quot;1/20/2017&quot;, &quot;1/21/2017…
+## $ enddate             &lt;chr&gt; &quot;1/22/2017&quot;, &quot;1/22/2017&quot;, &quot;1/24/2017&quot;, &quot;1/23/2017…
+## $ pollster            &lt;chr&gt; &quot;Gallup&quot;, &quot;Morning Consult&quot;, &quot;Ipsos&quot;, &quot;Gallup&quot;, &quot;…
+## $ grade               &lt;chr&gt; &quot;B&quot;, &quot;B/C&quot;, &quot;B-&quot;, &quot;B&quot;, &quot;B-&quot;, &quot;C+&quot;, &quot;B+&quot;, &quot;B&quot;, &quot;C+…
+## $ samplesize          &lt;dbl&gt; 1500, 1992, 1632, 1500, 1651, 1500, 1190, 1500, 1…
+## $ population          &lt;chr&gt; &quot;a&quot;, &quot;rv&quot;, &quot;a&quot;, &quot;a&quot;, &quot;a&quot;, &quot;lv&quot;, &quot;rv&quot;, &quot;a&quot;, &quot;lv&quot;, …
+## $ weight              &lt;dbl&gt; 0.262, 0.680, 0.153, 0.243, 0.142, 0.200, 1.514, …
+## $ influence           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ approve             &lt;dbl&gt; 45.0, 46.0, 42.1, 45.0, 42.3, 57.0, 36.0, 46.0, 5…
+## $ disapprove          &lt;dbl&gt; 45.0, 37.0, 45.2, 46.0, 45.8, 43.0, 44.0, 45.0, 4…
+## $ adjusted_approve    &lt;dbl&gt; 45.7, 45.3, 43.2, 45.7, 43.4, 51.5, 37.6, 46.7, 5…
+## $ adjusted_disapprove &lt;dbl&gt; 43.6, 38.3, 43.9, 44.6, 44.5, 44.5, 42.8, 43.6, 4…
+## $ multiversions       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+## $ tracking            &lt;lgl&gt; TRUE, NA, TRUE, TRUE, TRUE, TRUE, NA, TRUE, TRUE,…
+## $ url                 &lt;chr&gt; &quot;http://www.gallup.com/poll/201617/gallup-daily-t…
+## $ poll_id             &lt;dbl&gt; 49253, 49249, 49426, 49262, 49425, 49266, 49260, …
+## $ question_id         &lt;dbl&gt; 77265, 77261, 77599, 77274, 77598, 77278, 77272, …
+## $ createddate         &lt;chr&gt; &quot;1/23/2017&quot;, &quot;1/23/2017&quot;, &quot;03/01/2017&quot;, &quot;1/24/201…
+## $ timestamp           &lt;chr&gt; &quot;27/09/2020 00:45&quot;, &quot;27/09/2020 00:45&quot;, &quot;27/09/20…</code></pre>
+<pre class="r"><code># Use `lubridate` to fix dates, as they are given as characters.
+
+library(lubridate)
+
+approval_polllist$modeldate&lt;-mdy(approval_polllist$modeldate)
+approval_polllist$startdate&lt;-mdy(approval_polllist$startdate)
+approval_polllist$enddate&lt;-mdy(approval_polllist$enddate)
+approval_polllist$createddate&lt;-mdy(approval_polllist$createddate)</code></pre>
+<div id="create-a-plot" class="section level2">
+<h2>Create a plot</h2>
+<pre class="r"><code>#Adding net approval
+president_approval &lt;- approval_polllist %&gt;%
+  mutate(net_approval = adjusted_approve - adjusted_disapprove)
+
+#Calculating statistics
+net_approval_weekly &lt;- president_approval %&gt;%
+  filter(subgroup == &quot;Voters&quot;) %&gt;%
+  group_by(week_number = isoweek(enddate), year=year(enddate)) %&gt;% 
+  summarise(mean_app = mean(net_approval, na.rm = TRUE), sd_app = sd(net_approval, na.rm = TRUE), count_app = n(), se_app = sd_app / sqrt(count_app), t_critical = qt(0.975, count_app-1) , margin_of_error = t_critical * se_app, app_low = mean_app - margin_of_error, app_high = mean_app + margin_of_error) %&gt;%
+  filter(count_app&gt;1)
+
+#Plotting
+ggplot(data = net_approval_weekly, aes(x = week_number,fill=as.factor(year))) + scale_fill_manual(values = c(&quot;red&quot;,&quot;#a1d99b&quot;,&quot;#66FFFF&quot;,&quot;#d4b9da&quot;)) + geom_line(aes(y=app_low))+geom_line(aes(y=mean_app)) + 
+  geom_line(aes(y=app_high))+geom_point(aes(y=mean_app)) + facet_wrap(~year) + geom_ribbon(aes(ymin=app_low,ymax=app_high),alpha=0.3)  + geom_hline(yintercept=0, size=1.0, color=&quot;orange&quot;) + scale_y_continuous(breaks=c(-20,-17.5,-15,-12.5,-10,-7.5,-5,-2.5,0,2.5,5.0,7.5)) + scale_x_continuous(breaks=c(0, 13,26,39,52)) + labs(title=&quot;Estimating Net Approval (approve-disapprove) for Donald Trump
+&quot;,subtitle=&quot;Weekly average of all polls&quot;,x=&quot;Week of the year&quot;,y=&quot;Average net approval (%)&quot;) + theme(text = element_text(size = 11),legend.position = &quot;none&quot;, panel.background = element_rect(fill = &quot;white&quot;, colour = &quot;white&quot;, size = 0.5, linetype = &quot;solid&quot;), panel.grid.major = element_line(size = 0.5, linetype = &#39;solid&#39;, colour = &quot;light grey&quot;), panel.grid.minor = element_line(size = 0.5, linetype = &#39;solid&#39;, colour = &quot; light grey&quot;))</code></pre>
+<p><img src="/blogs/Trump_files/figure-html/unnamed-chunk-2-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/Users/satyamgorry/Documents/Education/LBS MFA2021/Core Courses/Term 1/Data Analytics for Finance/website7/images/trump_approval_margin.png" width="100%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="compare-confidence-intervals" class="section level2">
+<h2>Compare Confidence Intervals</h2>
+<pre class="r"><code>#Filtering for week 15 year 2020 in the table
+net_approval_week15 &lt;- net_approval_weekly %&gt;%
+  filter(week_number == 15, year == 2020)
+
+net_approval_week15</code></pre>
+<pre><code>## # A tibble: 1 x 10
+## # Groups:   week_number [1]
+##   week_number  year mean_app sd_app count_app se_app t_critical margin_of_error
+##         &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;int&gt;  &lt;dbl&gt;      &lt;dbl&gt;           &lt;dbl&gt;
+## 1          15  2020    -7.29   4.15        35  0.702       2.03            1.43
+## # … with 2 more variables: app_low &lt;dbl&gt;, app_high &lt;dbl&gt;</code></pre>
+<pre class="r"><code>#Filtering for week 34 year 2020 in the table
+net_approval_week34 &lt;- net_approval_weekly %&gt;%
+  filter(week_number == 34, year == 2020)
+
+net_approval_week34</code></pre>
+<pre><code>## # A tibble: 1 x 10
+## # Groups:   week_number [1]
+##   week_number  year mean_app sd_app count_app se_app t_critical margin_of_error
+##         &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;     &lt;int&gt;  &lt;dbl&gt;      &lt;dbl&gt;           &lt;dbl&gt;
+## 1          34  2020    -11.7   5.24        32  0.927       2.04            1.89
+## # … with 2 more variables: app_low &lt;dbl&gt;, app_high &lt;dbl&gt;</code></pre>
+<p>Looking at the graph, the confidence interval of the later week (week 34) is larger. There might be two reasons for this development, standard deviation and sample size. Variability might be increased and/ or the sample size might be reduced. Checking the table, we are able to identify that standard deviation indeed increased and sample size indeed decreased.</p>
+</div>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://github.com/SatyamG7/website7" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/in/satyam-gorry/" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; London Business School</li>
+                
+                <li>Design:  <a href="https://www.html5up.net">HTML5 UP</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

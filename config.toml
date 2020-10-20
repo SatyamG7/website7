@@ -66,6 +66,10 @@ disqusShortname = ""
     [[params.navigation.links]]
       name = "Social Media and Email Usage"
       url = "blogs/GSS1"
+      
+    [[params.navigation.links]]
+      name = "Trump's Apporval Ratings"
+      url = "blogs/Trump"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -114,7 +118,7 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "GDP"
       subtitle = "Comparing GDP and its components over time between France, India and Singapore"
-      image = "pic14.jpg"
+      image = "pic19.jpg"
       url = "blogs/GDP"
 
     [[params.tiles.showcase]]
@@ -125,9 +129,15 @@ disqusShortname = ""
 
     [[params.tiles.showcase]]
       title = "Social Media and Email Usage"
-      subtitle = "Ipsum Dolor Sit Amet"
+      subtitle = "Social Media Usage by Gender and Education, and time spent on Emails per week"
       image = "pic15.jpg"
       url = "blogs/GSS1"
+      
+    [[params.tiles.showcase]]
+      title = "Trump's Approval Ratings"
+      subtitle = "Trump's Approval Ratings over the Years"
+      image = "pic18.jpg"
+      url = "blogs/Trump"
 
     ##[[params.tiles.showcase]]
       ##title = "Etiam"

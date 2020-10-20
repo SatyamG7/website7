@@ -5,7 +5,7 @@ categories:
 date: "2020-10-19"
 description: Comparing GDP and its components over time between France, India and Singapore
 draft: false
-image: pic13.jpg
+image: pic20.jpg
 keywords: ""
 slug: GDP
 title: GDP
